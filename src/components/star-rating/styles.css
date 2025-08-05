@@ -1,9 +1,24 @@
-
-
-.active{
-    color: #fff700;
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
-.inactive{
-    color: #000;
+.active {
+  color: #fff700;
+}
+
+.inactive {
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  .star-rating {
+    gap: 3px;
+  }
+  
+  .star-rating svg {
+    size: 30px;
+  }
 }
