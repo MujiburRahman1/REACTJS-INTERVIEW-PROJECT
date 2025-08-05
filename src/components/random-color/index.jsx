@@ -34,7 +34,7 @@ export default function RandomColor() {
   
     return( 
     <div style={{
-        width: "100vw",
+        width: "100%",
         height: "100vh",
         background: color,
         padding: "20px",
@@ -49,7 +49,7 @@ export default function RandomColor() {
           justifyContent: "center",
           alignItems: "center",
           color: "#fff",
-          fontSize: "60px",
+          fontSize: "40px",
           marginTop: "50px",
           flexDirection: "column",
           gap: "20px"
