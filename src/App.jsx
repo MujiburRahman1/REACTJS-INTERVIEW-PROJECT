@@ -11,32 +11,31 @@ import { menus } from './components/tree-view/data';
 
 function App() {
   return (
-    
     <div className="App">
-      {/* <Accordian component/> */}
-      <Accordian />
-
-      {/* <Random Color component/> */}
-      <RandomColor />
-
-      {/* <StarRating /> */}
-      <StarRating noOfStars={10} />
-
-      {/* image slider component */}
-      <ImageSlider url="https://api.example.com/images" limit={5} /> */
-       <ImageSlider url={"https://picsum.photos/v2/list"}
-        page={"1"}
-        limit={"10"} />
-
-      {/* Load more products component */}
-      <LoadMoreData />
-
-
-      {/* Tree View component/ menu UI component/ recursive navigation menu */}
-      <TreeView menus={menus} />
+      <div className="component-container">
+        <Accordian />
+      </div>
+      
+      <div className="component-container">
+        <RandomColor />
+      </div>
+      
+      <div className="component-container">
+        <StarRating noOfStars={10} />
+      </div>
+      
+      <div className="component-container">
+        <ImageSlider url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} />
+      </div>
+      
+      <div className="component-container">
+        <LoadMoreData />
+      </div>
+      
+      <div className="component-container">
+        <TreeView menus={menus} />
+      </div>
     </div>
   )
 }
-
-
-export default App
+  export default App
