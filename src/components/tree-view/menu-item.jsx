@@ -1,35 +1,21 @@
-import { useState } from "react";
-import MenuList from "./menu-list";
-import {FaMinus, FaPlus} from 'react-icons/fa'
+// menu-item.jsx
+import { useState } from 'react';
+import MenuList from './menu-list';
+import './styles.css';
 
 export default function MenuItem({ item }) {
-  const [displayCurrentChildren, setDisplayCurrentChildren] = useState({});
-
-  function handleToggleChildren(getCurrentlabel) {
-    setDisplayCurrentChildren({
-      ...displayCurrentChildren,
-      [getCurrentlabel]: !displayCurrentChildren[getCurrentlabel],
-    });
-  }
-
-  console.log(displayCurrentChildren);
+  const [isOpen, setIsOpen] = useState(false);
+  const hasChildren = item.children && item.children.length > 0;
 
   return (
     <li>
-      <div className="menu-item">
-        <p>{item.label}</p>
-        {item && item.children && item.children.length ? (
-          <span onClick={() => handleToggleChildren(item.label)}>
-            {
-                displayCurrentChildren[item.label] ? <FaMinus color="#fff" size={25} /> : <FaPlus color="#fff" size={25} />
-            }
-          </span>
-        ) : null}
+      <div 
+        className={`menu-item ${hasChildren ? 'has-children' : ''} ${isOpen ? 'open' : ''}`}
+        onClick={() => hasChildren && setIsOpen(!isOpen)}
+      >
+        {item.label}
       </div>
-
-      {item && item.children && item.children.length > 0 && displayCurrentChildren[item.label] ? (
-        <MenuList list={item.children} />
-      ) : null}
+      {hasChildren && isOpen && <MenuList list={item.children} />}
     </li>
   );
 }
